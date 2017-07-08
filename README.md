@@ -16,10 +16,13 @@ https://notify-bot.line.me
 ```
 
 This method for sending the messages to your Line Notify
+```java
     boolean notifyMe(String message)
     // return true when success status 200
-
+```
 This method for sending the messages and stickers to your Line Notify
 You can get stickersID From HERE --> https://devdocs.line.me/files/sticker_list.pdf <--
+```java
     boolean notifyMe(String message,int stickerPackageId,int stickerId)
     // return true when success status 200
+```
