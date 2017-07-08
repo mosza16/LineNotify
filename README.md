@@ -3,9 +3,8 @@ Line Notify API for JAVA Example
 GET START
 https://notify-bot.line.me
 
-
-////
-public static void main(String[] args) {
+```java
+   public static void main(String[] args) {
         final String USER_TOKEN = "Your API Token";
         LineNotify ln = new LineNotify(USER_TOKEN);
         try{
@@ -13,8 +12,8 @@ public static void main(String[] args) {
         }catch(IOException ex){
             System.err.println(ex);
         }
-    }
-////
+    }     
+```
 
 This method for sending the messages to your Line Notify
     boolean notifyMe(String message)
