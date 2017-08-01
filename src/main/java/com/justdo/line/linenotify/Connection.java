@@ -19,9 +19,9 @@ import java.nio.charset.StandardCharsets;
  *
  * @author mosza16
  */
-public class Connection {
-    static final String URL_LINE_API = "https://notify-api.line.me/api/notify";
-    private static HttpURLConnection preparedHeader(final String TOKEN) throws MalformedURLException, IOException {
+ class Connection {
+    private static final String URL_LINE_API = "https://notify-api.line.me/api/notify";
+    private static HttpURLConnection preparedProperty(final String TOKEN) throws MalformedURLException, IOException {
         URL url = new URL(URL_LINE_API);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         StringBuilder Authorization = new StringBuilder("Bearer ");
@@ -38,10 +38,10 @@ public class Connection {
     //set body parameter for http request
     private static String preparedParameter(LineParameter l){
         StringBuilder urlParameters = new StringBuilder();
-        urlParameters.append("message="+l.message);
-        if(l.stickerId>0 && l.stickerPackageId>0){
-            urlParameters.append("&stickerPackageId="+l.stickerId);
-            urlParameters.append("&stickerId="+l.stickerPackageId);
+        urlParameters.append("message="+l.getMessage());
+        if(l.getStickerId()>0 && l.getStickerPackageId()>0){
+            urlParameters.append("&stickerPackageId="+l.getStickerId());
+            urlParameters.append("&stickerId="+l.getStickerPackageId());
         }
         return urlParameters.toString();
     }
@@ -52,7 +52,7 @@ public class Connection {
         byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
         int postDataLength = postData.length;
         int statusCode = 500;
-        HttpURLConnection conn = preparedHeader(TOKEN);
+        HttpURLConnection conn = preparedProperty(TOKEN);
         conn.setRequestProperty("charset", "utf-8");
         conn.setRequestProperty("Content-Length", Integer.toString(postDataLength));
         conn.setUseCaches(false);
@@ -70,4 +70,5 @@ public class Connection {
         conn.disconnect();
         return statusCode;
     }
+    
 }

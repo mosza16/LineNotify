@@ -11,8 +11,8 @@ import java.io.IOException;
  * @author mosza16
  */
 public class LineNotify {
-    String userToken;
-    LineParameter lineParameter;
+    private String userToken;
+    private LineParameter lineParameter;
 
     public LineNotify(String userToken) {
         this.userToken = userToken;
@@ -42,6 +42,4 @@ public class LineNotify {
         return resStatus==200;
     }
     
-    
-
 }

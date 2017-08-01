@@ -9,10 +9,10 @@ package com.justdo.line.linenotify;
  *
  * @author mosza16
  */
-public class LineParameter {
-    String message;
-    int stickerPackageId;
-    int stickerId ;
+ class LineParameter {
+    private String message;
+    private int stickerPackageId;
+    private int stickerId ;
 
     public LineParameter(String message) {
         this.message = message;
